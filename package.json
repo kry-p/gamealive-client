@@ -1,6 +1,6 @@
 {
-  "name": "gamerzfesinfo-front",
-  "version": "1.0.0",
+  "name": "gamealive-client",
+  "version": "1.0.1",
   "license": "MIT",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
