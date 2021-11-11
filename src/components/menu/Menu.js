@@ -2,24 +2,24 @@ import React from 'react';
 
 import Card from '../common/Card';
 
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 
-import NightsStayIcon from '@material-ui/icons/NightsStay';
-import SettingsIcon from '@material-ui/icons/Settings';
-import EventAvailableIcon from '@material-ui/icons/EventAvailable';
-import TextFieldsIcon from '@material-ui/icons/TextFields';
+import NightsStayIcon from '@mui/icons-material/NightsStay';
+import SettingsIcon from '@mui/icons-material/Settings';
+import EventAvailableIcon from '@mui/icons-material/EventAvailable';
+import TextFieldsIcon from '@mui/icons-material/TextFields';
 
-import { makeStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Collapse from '@material-ui/core/Collapse';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import Switch from '@material-ui/core/Switch';
-import Divider from '@material-ui/core/Divider';
+import { makeStyles } from '@mui/styles';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Collapse from '@mui/material/Collapse';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import Switch from '@mui/material/Switch';
+import Divider from '@mui/material/Divider';
 
 const useStyles = makeStyles((theme) => ({
   root: {

@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import qs from 'qs';
 
-import TextField from '@material-ui/core/TextField';
-import IconButton from '@material-ui/core/IconButton';
+import TextField from '@mui/material/TextField';
+import IconButton from '@mui/material/IconButton';
 
 import { MdSearch } from 'react-icons/md';
 

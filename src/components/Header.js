@@ -7,7 +7,7 @@ import Card from './common/Card';
 import Responsive from './common/Responsive';
 import palette from '../lib/styles/palette';
 
-import IconButton from '@material-ui/core/IconButton';
+import IconButton from '@mui/material/IconButton';
 
 // items css
 const Logo = styled.div`

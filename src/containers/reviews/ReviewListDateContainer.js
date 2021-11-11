@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import qs from 'qs';
 import { changeField, listReviewDate } from '../../modules/review';
 import ReviewInfo from '../../components/info/ReviewInfo';
-import Pagination from '@material-ui/lab/Pagination';
-import PaginationItem from '@material-ui/lab/PaginationItem';
+import Pagination from '@mui/material/Pagination';
+import PaginationItem from '@mui/material/PaginationItem';
 
 // redux-saga container for review information
 const ReviewListDateContainer = ({ location }) => {

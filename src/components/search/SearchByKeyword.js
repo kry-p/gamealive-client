@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import qs from 'qs';
 
-import IconButton from '@material-ui/core/IconButton';
-import InputBase from '@material-ui/core/InputBase';
+import IconButton from '@mui/material/IconButton';
+import InputBase from '@mui/material/InputBase';
 
 import { MdSearch } from 'react-icons/md';
 import Card from '../common/Card';

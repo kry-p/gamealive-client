@@ -5,11 +5,11 @@ import styled from 'styled-components';
 import Button from '../common/Button';
 import palette from '../../lib/styles/palette';
 
-import { ReactComponent as Kakaotalk } from '../../resources/sns/kakaotalk.svg';
-import { ReactComponent as Facebook } from '../../resources/sns/facebook.svg';
-import { ReactComponent as Twitter } from '../../resources/sns/twitter.svg';
-import { ReactComponent as Blog } from '../../resources/sns/blog.svg';
-import { ReactComponent as Link } from '../../resources/sns/link.svg';
+import Kakaotalk from '../../resources/sns/kakaotalk.svg';
+import Facebook from '../../resources/sns/facebook.svg';
+import Twitter from '../../resources/sns/twitter.svg';
+import Blog from '../../resources/sns/blog.svg';
+import Link from '../../resources/sns/link.svg';
 
 const TextArea = styled.textarea`
   position: absolute;
