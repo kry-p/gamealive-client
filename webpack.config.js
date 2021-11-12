@@ -28,23 +28,22 @@ module.exports = {
         loader: 'babel-loader',
       },
       {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
+      {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
+        test: /\.(png|jpg|jpeg|gif|ico)$/,
         exclude: /node_modules/,
         use: {
           loader: 'file-loader',
           options: {
-            name: '[name].[ext]?[hash]',
-            publicPath: './dist/',
+            name: '[name].[contenthash].[ext]',
           },
         },
-      },
-      {
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
       },
     ],
   },
