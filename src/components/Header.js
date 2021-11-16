@@ -11,13 +11,6 @@ import IconButton from '@mui/material/IconButton';
 
 // items css
 const Logo = styled.div`
-  @font-face {
-    font-family: 'TmoneyRoundWindExtraBold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff')
-      format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
   letter-spacing: 2px;
   text-align: center;
   font-size: 18px;

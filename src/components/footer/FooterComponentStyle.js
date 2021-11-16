@@ -2,16 +2,7 @@ import styled from 'styled-components';
 
 // footer card css
 export const FooterStyle = styled.div`
-  @font-face {
-    font-family: 'TmoneyRoundWindRegular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindRegular.woff')
-      format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-  font-family: TmoneyRoundWindRegular;
   font-size: 0.75em;
-
   padding: 1rem;
   display: grid;
   grid-template-columns: 3fr;
