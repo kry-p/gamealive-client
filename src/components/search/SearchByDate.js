@@ -30,10 +30,8 @@ const SearchByDate = ({ form, onChange }) => {
         type="date"
         value={form.startdate}
         name="startdate"
+        variant="standard"
         onChange={onChange}
-        InputLabelProps={{
-          shrink: true,
-        }}
       />
       <TextField
         style={{ gridColumn: '2 / span 1' }}
@@ -41,11 +39,9 @@ const SearchByDate = ({ form, onChange }) => {
         label="종료일"
         type="date"
         name="enddate"
+        variant="standard"
         value={form.enddate}
         onChange={onChange}
-        InputLabelProps={{
-          shrink: true,
-        }}
       />
       <IconButton
         style={{ gridColumn: '3 / span 1' }}

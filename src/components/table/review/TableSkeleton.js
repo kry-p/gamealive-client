@@ -17,7 +17,7 @@ const ReviewItem = ({ review }) => {
 const TableSkeleton = ({ review, loading }) => {
   return (
     <>
-      <Table>
+      <Table size="small">
         <TableHead>
           <TableRow>
             <TableCell align={'center'}>게임물명</TableCell>
