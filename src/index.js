@@ -1,11 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
-
-import './index.css';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { koKR } from '@mui/material/locale';
 
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -16,25 +11,9 @@ import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer, { rootSaga } from './modules';
 
-const sagaMiddleware = createSagaMiddleware();
-const theme = createTheme(
-  {
-    typography: {
-      fontFamily: 'TmoneyRoundWindRegular',
-      fontSize: 11,
-    },
-    overrides: {
-      MuiTableCell: {
-        root: {
-          //This can be referred from Material UI API documentation.
-          padding: '6px 6px',
-        },
-      },
-    },
-  },
-  koKR,
-);
+import GlobalStyle from './lib/styles/global';
 
+const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(sagaMiddleware)),
@@ -46,11 +25,8 @@ sagaMiddleware.run(rootSaga);
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <ThemeProvider theme={theme}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </ThemeProvider>
+      <GlobalStyle />
+      <App />
     </PersistGate>
   </Provider>,
   document.getElementById('root'),

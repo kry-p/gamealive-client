@@ -117,7 +117,6 @@ const CardStyle = styled.div`
       }
     `}
 `;
-
 const Card = (props) => {
   return <CardStyle {...props} />;
 };
