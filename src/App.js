@@ -10,6 +10,16 @@ import { useSelector } from 'react-redux';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { koKR } from '@mui/material/locale';
 
+import styled, {
+  ThemeProvider as StyledThemeProvider,
+} from 'styled-components';
+import theme from 'styled-theming';
+
+export const backgroundColor = theme('theme', {
+  light: '#fff',
+  dark: '#000',
+});
+
 const lightMaterialTheme = createTheme(
   {
     typography: {
@@ -49,6 +59,11 @@ const darkMaterialTheme = createTheme(
   koKR,
 );
 
+const BodyStyle = styled.body`
+  background-color: ${backgroundColor};
+  height: 100%;
+`;
+
 const App = () => {
   const option = useSelector((state) => state.option);
   const [currentMaterialTheme, setCurrentMaterialTheme] =
@@ -59,15 +74,19 @@ const App = () => {
     else setCurrentMaterialTheme(lightMaterialTheme);
   }, [option]);
   return (
-    <ThemeProvider theme={currentMaterialTheme}>
-      <BrowserRouter>
-        {/* <Route component={MainPage} path="/" exact /> */}
-        <Route component={SearchDatePage} path="/search/date" exact />
-        <Route component={SearchKeywordPage} path="/search/keyword" exact />
-        <Route component={SearchKeywordPage} path="/" exact />
-        <Route component={MenuPage} path="/menu" exact />
-      </BrowserRouter>
-    </ThemeProvider>
+    <BodyStyle>
+      <StyledThemeProvider theme={{ theme: 'dark' }}>
+        <ThemeProvider theme={currentMaterialTheme}>
+          <BrowserRouter>
+            {/* <Route component={MainPage} path="/" exact /> */}
+            <Route component={SearchDatePage} path="/search/date" exact />
+            <Route component={SearchKeywordPage} path="/search/keyword" exact />
+            <Route component={SearchKeywordPage} path="/" exact />
+            <Route component={MenuPage} path="/menu" exact />
+          </BrowserRouter>
+        </ThemeProvider>
+      </StyledThemeProvider>
+    </BodyStyle>
   );
 };
 
