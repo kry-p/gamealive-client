@@ -10,15 +10,7 @@ import { useSelector } from 'react-redux';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { koKR } from '@mui/material/locale';
 
-import styled, {
-  ThemeProvider as StyledThemeProvider,
-} from 'styled-components';
-import theme from 'styled-theming';
-
-export const backgroundColor = theme('theme', {
-  light: '#fff',
-  dark: '#000',
-});
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 const lightMaterialTheme = createTheme(
   {
@@ -59,34 +51,33 @@ const darkMaterialTheme = createTheme(
   koKR,
 );
 
-const BodyStyle = styled.body`
-  background-color: ${backgroundColor};
-  height: 100%;
-`;
-
 const App = () => {
   const option = useSelector((state) => state.option);
   const [currentMaterialTheme, setCurrentMaterialTheme] =
     useState(lightMaterialTheme);
+  const [currentGlobalTheme, setCurrentGlobalTheme] = useState('light');
 
   useEffect(() => {
-    if (option.darkmode) setCurrentMaterialTheme(darkMaterialTheme);
-    else setCurrentMaterialTheme(lightMaterialTheme);
+    if (option.darkmode) {
+      setCurrentMaterialTheme(darkMaterialTheme);
+      setCurrentGlobalTheme('dark');
+    } else {
+      setCurrentMaterialTheme(lightMaterialTheme);
+      setCurrentGlobalTheme('light');
+    }
   }, [option]);
   return (
-    <BodyStyle>
-      <StyledThemeProvider theme={{ theme: 'dark' }}>
-        <ThemeProvider theme={currentMaterialTheme}>
-          <BrowserRouter>
-            {/* <Route component={MainPage} path="/" exact /> */}
-            <Route component={SearchDatePage} path="/search/date" exact />
-            <Route component={SearchKeywordPage} path="/search/keyword" exact />
-            <Route component={SearchKeywordPage} path="/" exact />
-            <Route component={MenuPage} path="/menu" exact />
-          </BrowserRouter>
-        </ThemeProvider>
-      </StyledThemeProvider>
-    </BodyStyle>
+    <StyledThemeProvider theme={{ theme: currentGlobalTheme }}>
+      <ThemeProvider theme={currentMaterialTheme}>
+        <BrowserRouter>
+          {/* <Route component={MainPage} path="/" exact /> */}
+          <Route component={SearchDatePage} path="/search/date" exact />
+          <Route component={SearchKeywordPage} path="/search/keyword" exact />
+          <Route component={SearchKeywordPage} path="/" exact />
+          <Route component={MenuPage} path="/menu" exact />
+        </BrowserRouter>
+      </ThemeProvider>
+    </StyledThemeProvider>
   );
 };
 

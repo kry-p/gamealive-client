@@ -1,7 +1,18 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+import theme from 'styled-theming';
 
-const GlobalStyle = createGlobalStyle`
+export const backgroundColor = theme('theme', {
+  light: '#fff',
+  dark: '#121212',
+});
+
+export const mainTextColor = theme('theme', {
+  light: '#000',
+  dark: '#fff',
+});
+
+export const GlobalStyle = createGlobalStyle`
     ${reset}
     code {
         font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -27,6 +38,12 @@ const GlobalStyle = createGlobalStyle`
         color: gray;
     }
 
+    html, 
+    body {
+        width: 100%;
+        height: 100%;
+    }
+
     body {
         margin: 0;
         font-family: TmoneyRoundWindRegular, -apple-system, BlinkMacSystemFont,
@@ -36,5 +53,3 @@ const GlobalStyle = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
     }
 `;
-
-export default GlobalStyle;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { mainTextColor } from '../../lib/styles/global';
 
 // color
 import palette from '../../lib/styles/palette';
@@ -16,6 +17,7 @@ const CardStyle = styled.div`
   border-radius: 0.75rem;
   box-sizing: border-box;
   box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1);
+  color: ${mainTextColor};
 
   animation: fadein 1s;
   -moz-animation: fadein 1s;
