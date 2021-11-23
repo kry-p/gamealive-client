@@ -16,8 +16,8 @@ const SearchFormStyle = styled.div`
   display: grid;
   grid-template-columns: 6fr 6fr 1fr;
   place-content: space-between center;
-  grid-gap: 0.5rem;
-  gap: 0.5rem;
+  grid-gap: 0rem;
+  gap: 0.25rem;
 `;
 
 const SearchByDate = ({ form, onChange }) => {

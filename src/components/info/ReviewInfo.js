@@ -12,7 +12,7 @@ const ReviewInfo = ({ type, review, loading, error, form, onChange }) => {
   if (error) {
     result = (
       <div style={{ padding: '2rem' }}>
-        오류가 발생했습니다. 일시적 서버 문제일 수 있습니다.
+        오류가 발생했습니다. 잠시 후 다시 시도해 주세요.
       </div>
     );
   } else if (loading) {
@@ -41,8 +41,17 @@ const ReviewInfo = ({ type, review, loading, error, form, onChange }) => {
           <>
             <SearchByDate form={form} onChange={onChange} />
             <HintStyle>
-              키워드로 찾고 싶으신가요?{' '}
-              <a href="/search/keyword">키워드로 검색하기</a>
+              <span
+                style={{ paddingRight: '0.125rem', paddingLeft: '0.125rem' }}
+              >
+                키워드로 찾고 싶으신가요?
+              </span>
+              <a
+                href="/search/keyword"
+                style={{ paddingRight: '0.125rem', paddingLeft: '0.125rem' }}
+              >
+                키워드로 검색하기
+              </a>
             </HintStyle>
           </>
         ) : (
@@ -52,7 +61,17 @@ const ReviewInfo = ({ type, review, loading, error, form, onChange }) => {
           <>
             <SearchByKeyword form={form} onChange={onChange} />
             <HintStyle>
-              날짜로 찾고 싶으신가요? <a href="/search/date">날짜로 검색하기</a>
+              <span
+                style={{ paddingRight: '0.125rem', paddingLeft: '0.125rem' }}
+              >
+                날짜로 찾고 싶으신가요?
+              </span>
+              <a
+                href="/search/date"
+                style={{ paddingRight: '0.125rem', paddingLeft: '0.125rem' }}
+              >
+                날짜로 검색하기
+              </a>
             </HintStyle>
           </>
         ) : (

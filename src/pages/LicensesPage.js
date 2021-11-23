@@ -1,20 +1,19 @@
 import React from 'react';
 
 import Footer from '../components/footer/Footer';
+import { MainStyle } from './PageStyle';
 import Header from '../components/Header';
 
-import { MainStyle } from './PageStyle';
-
-const MainPage = () => {
+const LicensePage = ({ history }) => {
   return (
     <>
       <MainStyle>
-        <Header />
-        여기에 메인 페이지 내용
+        <Header history={history} />
+        여기에 라이선스 내용
         <Footer />
       </MainStyle>
     </>
   );
 };
 
-export default MainPage;
+export default LicensePage;

@@ -11,9 +11,17 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { koKR } from '@mui/material/locale';
 
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+import LicensesPage from './pages/LicensesPage';
+import { CssBaseline } from '@mui/material';
 
 const lightMaterialTheme = createTheme(
   {
+    palette: {
+      mode: 'light',
+      background: {
+        default: '#fff',
+      },
+    },
     typography: {
       fontFamily: 'TmoneyRoundWindRegular',
       fontSize: 11,
@@ -34,6 +42,9 @@ const darkMaterialTheme = createTheme(
   {
     palette: {
       mode: 'dark',
+      background: {
+        default: '#151515',
+      },
     },
     typography: {
       fontFamily: 'TmoneyRoundWindRegular',
@@ -69,12 +80,14 @@ const App = () => {
   return (
     <StyledThemeProvider theme={{ theme: currentGlobalTheme }}>
       <ThemeProvider theme={currentMaterialTheme}>
+        <CssBaseline />
         <BrowserRouter>
           {/* <Route component={MainPage} path="/" exact /> */}
           <Route component={SearchDatePage} path="/search/date" exact />
           <Route component={SearchKeywordPage} path="/search/keyword" exact />
           <Route component={SearchKeywordPage} path="/" exact />
           <Route component={MenuPage} path="/menu" exact />
+          <Route component={LicensesPage} path="/licenses" exact />
         </BrowserRouter>
       </ThemeProvider>
     </StyledThemeProvider>

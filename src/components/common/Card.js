@@ -1,6 +1,10 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { mainTextColor } from '../../lib/styles/global';
+import {
+  mainTextColor,
+  cardColor,
+  searchFormColor,
+} from '../../lib/styles/global';
 
 // color
 import palette from '../../lib/styles/palette';
@@ -18,6 +22,8 @@ const CardStyle = styled.div`
   box-sizing: border-box;
   box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1);
   color: ${mainTextColor};
+
+  background-color: ${cardColor};
 
   animation: fadein 1s;
   -moz-animation: fadein 1s;
@@ -81,12 +87,12 @@ const CardStyle = styled.div`
   ${(props) =>
     props.search &&
     css`
-      background-color: ${palette.gray[0]};
-      margin: 0;
+      background-color: ${searchFormColor};
+      margin: 0rem;
       padding-left: 1rem;
       padding-right: 0rem;
-      padding-top: 0rem;
-      padding-bottom: 0rem;
+      padding-top: 0.2rem;
+      padding-bottom: 0.2rem;
     `}
 
   ${(props) =>

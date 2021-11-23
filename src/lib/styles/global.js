@@ -2,14 +2,19 @@ import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 import theme from 'styled-theming';
 
-export const backgroundColor = theme('theme', {
-  light: '#fff',
-  dark: '#121212',
-});
-
 export const mainTextColor = theme('theme', {
   light: '#000',
   dark: '#fff',
+});
+
+export const cardColor = theme('theme', {
+  light: '#fff',
+  dark: '#222222',
+});
+
+export const searchFormColor = theme('theme', {
+  light: '#f8f9fa',
+  dark: '#2c2c2c',
 });
 
 export const GlobalStyle = createGlobalStyle`

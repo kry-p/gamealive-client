@@ -16,6 +16,10 @@ export const CardStyle = styled(Card)`
 `;
 
 export const HintStyle = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   padding: 1rem;
   font-size: 0.75rem;
 `;

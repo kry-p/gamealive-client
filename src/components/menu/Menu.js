@@ -9,6 +9,7 @@ import NightsStayIcon from '@mui/icons-material/NightsStay';
 import SettingsIcon from '@mui/icons-material/Settings';
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
+import AssignmentIcon from '@mui/icons-material/Assignment';
 
 import { makeStyles } from '@mui/styles';
 import List from '@mui/material/List';
@@ -25,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
   },
   nested: {
     padding: theme.spacing(0),
@@ -82,6 +82,21 @@ const Menu = ({
             secondary="심의가 진행된 날짜를 입력하여 검색합니다."
           />
         </ListItem>
+        <ListItem
+          button
+          onClick={() => {
+            history.push('/licenses');
+          }}
+        >
+          <ListItemIcon>
+            <AssignmentIcon />
+          </ListItemIcon>
+          <ListItemText
+            primary="오픈소스 라이선스"
+            secondary="라이선스 정보를 확인할 수 있습니다."
+          />
+        </ListItem>
+
         <Divider />
         <ListItem button>
           <ListItemIcon>
@@ -89,7 +104,7 @@ const Menu = ({
           </ListItemIcon>
           <ListItemText
             primary="다크 모드"
-            secondary="다크 모드를 설정합니다. (구현 예정)"
+            secondary="다크 모드를 설정합니다."
           />
           <Switch
             checked={settings.darkmode}

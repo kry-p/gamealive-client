@@ -88,8 +88,8 @@ const Copyright = (
         </div>
         <div>
           모든 소스 코드는{' '}
-          <a href="https://github.com/kry-p/GamerzFesInfo">GitHub</a>에 공개되어
-          있으며 MIT 라이선스에 의거 자유롭게 사용하실 수 있습니다.
+          <a href="https://github.com/kry-p/gamealive-client">GitHub</a>에
+          공개되어 있으며 MIT 라이선스에 의거 자유롭게 사용하실 수 있습니다.
         </div>
       </AccordionDetails>
     </Accordion>
