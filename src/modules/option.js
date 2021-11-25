@@ -3,15 +3,18 @@ import { createAction } from 'redux-actions';
 const TOGGLE_DARKMODE = 'option/TOGGLE_DARKMODE';
 const TOGGLE_CANCELLED = 'option/TOGGLE_CANCELLED';
 const TOGGLE_REJECTED = 'option/TOGGLE_REJECTED';
+const TOGGLE_MENU_OPEN = 'option/TOGGLE_MENU_OPEN';
 
 export const toggleDarkmode = createAction(TOGGLE_DARKMODE);
 export const toggleCancelled = createAction(TOGGLE_CANCELLED);
 export const toggleRejected = createAction(TOGGLE_REJECTED);
+export const toggleMenuOpen = createAction(TOGGLE_MENU_OPEN);
 
 const initialState = {
   darkmode: false,
   searchReject: false,
   searchCancel: false,
+  menuOpen: false,
 };
 
 function option(state = initialState, action) {
@@ -30,6 +33,11 @@ function option(state = initialState, action) {
       return {
         ...state,
         searchReject: !state.searchReject,
+      };
+    case TOGGLE_MENU_OPEN:
+      return {
+        ...state,
+        menuOpen: !state.menuOpen,
       };
     default:
       return state;

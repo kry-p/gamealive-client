@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-// import MainPage from './pages/MainPage';
+import MainPage from './pages/MainPage';
 import SearchDatePage from './pages/SearchDatePage';
 import SearchKeywordPage from './pages/SearchKeywordPage';
 import MenuPage from './pages/MenuPage';
@@ -82,7 +82,7 @@ const App = () => {
       <ThemeProvider theme={currentMaterialTheme}>
         <CssBaseline />
         <BrowserRouter>
-          {/* <Route component={MainPage} path="/" exact /> */}
+          <Route component={MainPage} path="/main" exact />
           <Route component={SearchDatePage} path="/search/date" exact />
           <Route component={SearchKeywordPage} path="/search/keyword" exact />
           <Route component={SearchKeywordPage} path="/" exact />

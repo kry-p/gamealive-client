@@ -31,6 +31,7 @@ const SearchByDate = ({ form, onChange }) => {
         value={form.startdate}
         name="startdate"
         variant="standard"
+        size="small"
         onChange={onChange}
       />
       <TextField
@@ -40,11 +41,12 @@ const SearchByDate = ({ form, onChange }) => {
         type="date"
         name="enddate"
         variant="standard"
+        size="small"
         value={form.enddate}
         onChange={onChange}
       />
       <IconButton
-        style={{ gridColumn: '3 / span 1' }}
+        style={{ gridColumn: '3 / span 1', paddingRight: 0 }}
         href={`?${queryBuilder(form.startdate, form.enddate, 1)}`}
       >
         <MdSearch />

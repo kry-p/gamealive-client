@@ -1,5 +1,4 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 
 import Card from '../common/Card';
 import {
@@ -26,9 +25,6 @@ import {
 // SNS share component
 const Sns = (
   <>
-    <Helmet>
-      <script src="https://developers.kakao.com/sdk/js/kakao.js" />
-    </Helmet>
     <TitleStyle>공유하기</TitleStyle>
     <SnsStyle>
       <KakaoShareButton />

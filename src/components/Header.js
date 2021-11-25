@@ -8,7 +8,9 @@ import Responsive from './common/Responsive';
 import palette from '../lib/styles/palette';
 
 import IconButton from '@mui/material/IconButton';
-
+import MenuPopupContainer from '../containers/common/MenuPopupContainer';
+import { useDispatch } from 'react-redux';
+import { toggleMenuOpen } from '../modules/option';
 // items css
 const Logo = styled.div`
   letter-spacing: 2px;
@@ -38,13 +40,14 @@ const ContentWrapper = styled(Responsive)`
  * TODO: 상단 버튼 액션 정의
  */
 const Header = ({ history }) => {
+  const dispatch = useDispatch();
   return (
     <>
       <Card big header>
         <ContentWrapper>
           <IconButton
             onClick={() => {
-              history.push('/menu');
+              dispatch(toggleMenuOpen());
             }}
           >
             <RiMenuFill />
