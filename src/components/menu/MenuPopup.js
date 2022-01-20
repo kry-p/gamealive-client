@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React, { useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import styled from 'styled-components';
 
 import Card from '../common/Card';
 
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-
 import NightsStayIcon from '@mui/icons-material/NightsStay';
-import SettingsIcon from '@mui/icons-material/Settings';
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import AssignmentIcon from '@mui/icons-material/Assignment';
@@ -16,13 +14,31 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
 import Switch from '@mui/material/Switch';
 import Divider from '@mui/material/Divider';
 import CloseIcon from '@mui/icons-material/Close';
 import { IconButton } from '@mui/material';
+
+import { toggleMenuOpen } from '../../modules/option';
+
+const Background = styled.div`
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+
+  animation: fadein 0.25s;
+  -moz-animation: fadein 0.25s;
+  /* Firefox */
+  -webkit-animation: fadein 0.25s;
+  /* Safari and Chrome */
+  -o-animation: fadein 0.25s;
+`;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,28 +57,33 @@ const MenuPopup = ({
   onToggleDarkmode,
   onToggleRejected,
   onToggleCancelled,
-  onToggleMenuOpen,
 }) => {
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
+  const isOpen = useSelector((state) => state.option.menuOpen);
 
-  const handleClick = () => {
-    setOpen(!open);
-  };
+  const onToggleMenuOpen = useCallback(
+    () => dispatch(toggleMenuOpen()),
+    [dispatch],
+  );
 
-  return (
+  return isOpen ? (
     <>
+      <Background />
       <div
         style={{
           display: 'flex',
-          position: 'relative',
+          position: 'fixed',
+          top: '0.75rem',
           flexDirection: 'column',
           zIndex: '2',
         }}
       >
-        <IconButton onClick={onToggleMenuOpen}>
-          <CloseIcon />
-        </IconButton>
+        <div>
+          <IconButton onClick={onToggleMenuOpen}>
+            <CloseIcon />
+          </IconButton>
+        </div>
         <Card big>
           <List
             component="nav"
@@ -72,6 +93,7 @@ const MenuPopup = ({
             <ListItem
               button
               onClick={() => {
+                onToggleMenuOpen();
                 history.push('/search/keyword');
               }}
             >
@@ -86,6 +108,7 @@ const MenuPopup = ({
             <ListItem
               button
               onClick={() => {
+                onToggleMenuOpen();
                 history.push('/search/date');
               }}
             >
@@ -100,6 +123,7 @@ const MenuPopup = ({
             <ListItem
               button
               onClick={() => {
+                onToggleMenuOpen();
                 history.push('/licenses');
               }}
             >
@@ -128,49 +152,11 @@ const MenuPopup = ({
                 inputProps={{ 'aria-label': 'dark mode' }}
               />
             </ListItem>
-            <ListItem button onClick={handleClick}>
-              <ListItemIcon>
-                <SettingsIcon />
-              </ListItemIcon>
-              <ListItemText
-                primary="검색 설정"
-                secondary="검색과 관련된 옵션이 들어 있습니다."
-              />
-              {open ? <ExpandLess /> : <ExpandMore />}
-            </ListItem>
-            <Collapse in={open} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <ListItem button className={classes.nested}>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={settings.searchReject}
-                        onChange={onToggleRejected}
-                        name="searchReject"
-                      />
-                    }
-                    label="심의 거부된 게임물을 표시"
-                  />
-                </ListItem>
-                <ListItem button className={classes.nested}>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={settings.searchCancel}
-                        onChange={onToggleCancelled}
-                        name="searchCancel"
-                      />
-                    }
-                    label="심의 취소된 게임물을 표시"
-                  />
-                </ListItem>
-              </List>
-            </Collapse>
           </List>
         </Card>
       </div>
     </>
-  );
+  ) : null;
 };
 
 export default MenuPopup;

@@ -39,7 +39,7 @@ const ContentWrapper = styled(Responsive)`
 /*
  * TODO: 상단 버튼 액션 정의
  */
-const Header = ({ history }) => {
+const Header = () => {
   const dispatch = useDispatch();
   return (
     <>

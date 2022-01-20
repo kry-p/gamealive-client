@@ -24,7 +24,6 @@ const MenuPopupContainer = ({ history }) => {
     () => dispatch(toggleRejected()),
     [dispatch],
   );
-
   const onToggleMenuOpen = useCallback(
     () => dispatch(toggleMenuOpen()),
     [dispatch],

@@ -124,6 +124,22 @@ const CardStyle = styled.div`
         width: 384px;
       }
     `}
+
+    ${(props) =>
+    props.licenses &&
+    css`
+      flex-direction: column;
+
+      h1 {
+        font-size: medium;
+      }
+      h2 {
+        font-size: small;
+      }
+      h3 {
+        font-size: x-small;
+      }
+    `}
 `;
 const Card = (props) => {
   return <CardStyle {...props} />;

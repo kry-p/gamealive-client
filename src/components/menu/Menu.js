@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 
 import Card from '../common/Card';
 
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-
 import NightsStayIcon from '@mui/icons-material/NightsStay';
 import SettingsIcon from '@mui/icons-material/Settings';
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
@@ -16,7 +13,6 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import Switch from '@mui/material/Switch';
@@ -42,10 +38,6 @@ const Menu = ({
 }) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-
-  const handleClick = () => {
-    setOpen(!open);
-  };
 
   return (
     <Card big>
@@ -123,34 +115,6 @@ const Menu = ({
           />
           {open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
-        <Collapse in={open} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            <ListItem button className={classes.nested}>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={settings.searchReject}
-                    onChange={onToggleRejected}
-                    name="searchReject"
-                  />
-                }
-                label="심의 거부된 게임물을 표시"
-              />
-            </ListItem>
-            <ListItem button className={classes.nested}>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={settings.searchCancel}
-                    onChange={onToggleCancelled}
-                    name="searchCancel"
-                  />
-                }
-                label="심의 취소된 게임물을 표시"
-              />
-            </ListItem>
-          </List>
-        </Collapse>
       </List>
     </Card>
   );

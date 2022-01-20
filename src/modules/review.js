@@ -13,11 +13,8 @@ import * as reviewAPI from '../lib/api/review';
 
 const CHANGE_FIELD = 'review/CHANGE_FIELD';
 
-const [
-  LIST_REVIEW_DATE,
-  LIST_REVIEW_DATE_SUCCESS,
-  LIST_REVIEW_DATE_FAILURE,
-] = createRequestActionTypes('review/LIST_REVIEW_DATE');
+const [LIST_REVIEW_DATE, LIST_REVIEW_DATE_SUCCESS, LIST_REVIEW_DATE_FAILURE] =
+  createRequestActionTypes('review/LIST_REVIEW_DATE');
 
 const [
   LIST_REVIEW_KEYWORD,
@@ -32,22 +29,18 @@ export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
 
 export const listReviewDate = createAction(
   LIST_REVIEW_DATE,
-  ({ startdate, enddate, page, cancel, reject }) => ({
+  ({ startdate, enddate, page }) => ({
     startdate,
     enddate,
     page,
-    cancel,
-    reject,
   }),
 );
 
 export const listReviewKeyword = createAction(
   LIST_REVIEW_KEYWORD,
-  ({ keyword, page, cancel, reject }) => ({
+  ({ keyword, page }) => ({
     keyword,
     page,
-    cancel,
-    reject,
   }),
 );
 

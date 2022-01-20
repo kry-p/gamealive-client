@@ -3,7 +3,6 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import SearchDatePage from './pages/SearchDatePage';
 import SearchKeywordPage from './pages/SearchKeywordPage';
-import MenuPage from './pages/MenuPage';
 
 import { useSelector } from 'react-redux';
 
@@ -86,7 +85,6 @@ const App = () => {
           <Route component={SearchDatePage} path="/search/date" exact />
           <Route component={SearchKeywordPage} path="/search/keyword" exact />
           <Route component={SearchKeywordPage} path="/" exact />
-          <Route component={MenuPage} path="/menu" exact />
           <Route component={LicensesPage} path="/licenses" exact />
         </BrowserRouter>
       </ThemeProvider>

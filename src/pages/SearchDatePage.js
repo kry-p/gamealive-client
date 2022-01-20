@@ -5,12 +5,14 @@ import ReviewlistDateContainer from '../containers/reviews/ReviewListDateContain
 
 import { MainStyle } from './PageStyle';
 import Header from '../components/Header';
+import MenuPopupContainer from '../containers/common/MenuPopupContainer';
 
 const SearchDatePage = ({ history }) => {
   return (
     <>
       <MainStyle>
-        <Header history={history} />
+        <Header />
+        <MenuPopupContainer history={history} />
         <ReviewlistDateContainer />
         <Footer />
       </MainStyle>

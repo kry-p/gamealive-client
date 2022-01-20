@@ -59,39 +59,6 @@ const Contact = (
   </>
 );
 
-// Copyright component
-const Copyright = (
-  <>
-    <Accordion
-      style={{
-        gridColumn: '1 / span 3',
-        textAlign: 'center',
-      }}
-    >
-      <AccordionSummary style={{ fontWeight: 'bold' }}>
-        저작권 표기
-      </AccordionSummary>
-      <AccordionDetails style={{ display: 'flex', flexDirection: 'column' }}>
-        <div>
-          Icons made by{' '}
-          <a href="https://www.freepik.com" title="Freepik">
-            Freepik
-          </a>{' '}
-          from{' '}
-          <a href="https://www.flaticon.com/" title="Flaticon">
-            www.flaticon.com
-          </a>
-        </div>
-        <div>
-          모든 소스 코드는{' '}
-          <a href="https://github.com/kry-p/gamealive-client">GitHub</a>에
-          공개되어 있으며 MIT 라이선스에 의거 자유롭게 사용하실 수 있습니다.
-        </div>
-      </AccordionDetails>
-    </Accordion>
-  </>
-);
-
 // main
 const Footer = () => {
   return (
@@ -100,7 +67,6 @@ const Footer = () => {
         {Disclaimer}
         {Sns}
         {Contact}
-        {Copyright}
       </FooterStyle>
     </Card>
   );
