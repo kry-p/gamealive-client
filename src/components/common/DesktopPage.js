@@ -8,7 +8,10 @@ import { HeaderDesktop } from '../Header';
 const DesktopPage = ({ history, content }) => {
   return (
     <MainStyleDesktop className={'desktop'}>
-      <div className={'top'}>
+      <div
+        className={'top'}
+        style={{ position: 'sticky', height: '0px', top: '0px' }}
+      >
         <HeaderDesktop />
         <MenuContainer history={history} />
       </div>
