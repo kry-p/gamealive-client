@@ -8,14 +8,13 @@ import Responsive from './common/Responsive';
 import palette from '../lib/styles/palette';
 
 import IconButton from '@mui/material/IconButton';
-import MenuPopupContainer from '../containers/common/MenuPopupContainer';
 import { useDispatch } from 'react-redux';
 import { toggleMenuOpen } from '../modules/option';
 // items css
 const Logo = styled.div`
   letter-spacing: 2px;
   text-align: center;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-family: TmoneyRoundWindExtraBold;
 
   ${(props) =>
@@ -25,7 +24,7 @@ const Logo = styled.div`
     `}
 `;
 
-const TextWrappper = styled.div`
+const TextWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
@@ -39,36 +38,43 @@ const ContentWrapper = styled(Responsive)`
 /*
  * TODO: 상단 버튼 액션 정의
  */
-const Header = () => {
+export const Header = () => {
   const dispatch = useDispatch();
   return (
-    <>
-      <Card big header>
-        <ContentWrapper>
-          <IconButton
-            onClick={() => {
-              dispatch(toggleMenuOpen());
-            }}
-          >
-            <RiMenuFill />
-          </IconButton>
+    <Card big header>
+      <ContentWrapper>
+        <IconButton
+          onClick={() => {
+            dispatch(toggleMenuOpen());
+          }}
+        >
+          <RiMenuFill />
+        </IconButton>
 
-          <TextWrappper>
-            <Logo>game</Logo>
-            <Logo colorize>alive</Logo>
-          </TextWrappper>
+        <TextWrapper>
+          <Logo>game</Logo>
+          <Logo colorize>alive</Logo>
+        </TextWrapper>
 
-          <IconButton
-            onClick={() => {
-              alert('구현 예정인 기능입니다.');
-            }}
-          >
-            <RiNotification4Line />
-          </IconButton>
-        </ContentWrapper>
-      </Card>
-    </>
+        <IconButton
+          onClick={() => {
+            alert('준비 중입니다.');
+          }}
+        >
+          <RiNotification4Line />
+        </IconButton>
+      </ContentWrapper>
+    </Card>
   );
 };
 
-export default Header;
+export const HeaderDesktop = () => {
+  return (
+    <Card small header>
+      <TextWrapper>
+        <Logo>game</Logo>
+        <Logo colorize>alive</Logo>
+      </TextWrapper>
+    </Card>
+  );
+};

@@ -10,20 +10,29 @@ import {
 import palette from '../../lib/styles/palette';
 
 // card css
-const CardStyle = styled.div`
+export const CardStyle = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.75rem;
   margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  border-radius: 0.75rem;
+  border-radius: 1rem;
   box-sizing: border-box;
-  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.05);
   color: ${mainTextColor};
 
   background-color: ${cardColor};
+
+  h1 {
+    font-size: medium;
+  }
+  h2 {
+    font-size: small;
+  }
+  h3 {
+    font-size: x-small;
+  }
 
   animation: fadein 1s;
   -moz-animation: fadein 1s;
@@ -98,30 +107,30 @@ const CardStyle = styled.div`
   ${(props) =>
     props.header &&
     css`
-      padding: 0.25rem;
+      padding: 0.5rem;
     `}
 
   ${(props) =>
     props.small &&
     css`
-      @media (max-width: 384px) {
+      @media (max-width: 360px) {
         width: 80%;
       }
 
-      @media (min-width: 384px) {
-        width: 307px;
+      @media (min-width: 360px) {
+        width: 288px;
       }
     `}
 
     ${(props) =>
     props.big &&
     css`
-      @media (max-width: 384px) {
+      @media (max-width: 360px) {
         width: 100%;
       }
 
-      @media (min-width: 384px) {
-        width: 384px;
+      @media (min-width: 360px) {
+        width: 360px;
       }
     `}
 
@@ -129,16 +138,6 @@ const CardStyle = styled.div`
     props.licenses &&
     css`
       flex-direction: column;
-
-      h1 {
-        font-size: medium;
-      }
-      h2 {
-        font-size: small;
-      }
-      h3 {
-        font-size: x-small;
-      }
     `}
 `;
 const Card = (props) => {

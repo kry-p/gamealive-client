@@ -1,25 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import styled from 'styled-components';
+import React from 'react';
 
-import Footer from '../components/footer/Footer';
-import Header from '../components/Header';
-import MenuPopupContainer from '../containers/common/MenuPopupContainer';
-import { MainStyle } from './PageStyle';
+import { Page } from '../components/common/PageStyle';
+import DesktopPage from '../components/common/DesktopPage';
+import MobilePage from '../components/common/MobilePage';
 
-const MainPage = () => {
-  const option = useSelector((state) => state.option.menuOpen);
-
+const LicensePage = ({ history }) => {
+  const LicenseCard = '여기에 메인 페이지 내용';
   return (
-    <>
-      <MainStyle style={{ zIndex: 1 }}>
-        <Header />
-        <MenuPopupContainer />
-        여기에 메인 페이지 내용
-        <Footer />
-      </MainStyle>
-    </>
+    <Page>
+      <DesktopPage history={history} content={LicenseCard} />
+      <MobilePage history={history} content={LicenseCard} />
+    </Page>
   );
 };
 
-export default MainPage;
+export default LicensePage;

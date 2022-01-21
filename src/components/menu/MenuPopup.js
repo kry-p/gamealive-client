@@ -18,8 +18,10 @@ import Switch from '@mui/material/Switch';
 import Divider from '@mui/material/Divider';
 import CloseIcon from '@mui/icons-material/Close';
 import { IconButton } from '@mui/material';
+import { alpha, styled as styledMaterial } from '@mui/material/styles';
 
 import { toggleMenuOpen } from '../../modules/option';
+import palette from '../../lib/styles/palette';
 
 const Background = styled.div`
   z-index: 1;
@@ -48,6 +50,21 @@ const useStyles = makeStyles((theme) => ({
   nested: {
     padding: theme.spacing(0),
     paddingLeft: theme.spacing(4),
+  },
+}));
+
+const ColoredSwitch = styledMaterial(Switch)(({ theme }) => ({
+  '& .MuiSwitch-switchBase.Mui-checked': {
+    color: palette.logo_base[0],
+    '&:hover': {
+      backgroundColor: alpha(
+        palette.logo_base[0],
+        theme.palette.action.hoverOpacity,
+      ),
+    },
+  },
+  '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+    backgroundColor: palette.logo_base[0],
   },
 }));
 
@@ -145,7 +162,7 @@ const MenuPopup = ({
                 primary="다크 모드"
                 secondary="다크 모드를 설정합니다."
               />
-              <Switch
+              <ColoredSwitch
                 checked={settings.darkmode}
                 onChange={onToggleDarkmode}
                 size="small"

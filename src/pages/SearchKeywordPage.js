@@ -1,23 +1,19 @@
 import React from 'react';
 
-import { MainStyle } from './PageStyle';
+import ReviewlistKeywordContainer from '../containers/reviews/ReviewListKeywordContainer';
 
-import Header from '../components/Header';
-import Footer from '../components/footer/Footer';
-import ReviewListKeywordContainer from '../containers/reviews/ReviewListKeywordContainer';
-import MenuPopupContainer from '../containers/common/MenuPopupContainer';
+import { Page } from '../components/common/PageStyle';
+import DesktopPage from '../components/common/DesktopPage';
+import MobilePage from '../components/common/MobilePage';
 
-const SearchKeywordPage = ({ history }) => {
+const SearchDatePage = ({ history }) => {
+  const container = <ReviewlistKeywordContainer />;
   return (
-    <>
-      <MainStyle>
-        <Header />
-        <MenuPopupContainer history={history} />
-        <ReviewListKeywordContainer />
-        <Footer />
-      </MainStyle>
-    </>
+    <Page>
+      <DesktopPage history={history} content={container} />
+      <MobilePage history={history} content={container} />
+    </Page>
   );
 };
 
-export default SearchKeywordPage;
+export default SearchDatePage;

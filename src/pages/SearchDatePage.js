@@ -1,22 +1,18 @@
 import React from 'react';
 
-import Footer from '../components/footer/Footer';
 import ReviewlistDateContainer from '../containers/reviews/ReviewListDateContainer';
 
-import { MainStyle } from './PageStyle';
-import Header from '../components/Header';
-import MenuPopupContainer from '../containers/common/MenuPopupContainer';
+import { Page } from '../components/common/PageStyle';
+import DesktopPage from '../components/common/DesktopPage';
+import MobilePage from '../components/common/MobilePage';
 
 const SearchDatePage = ({ history }) => {
+  const container = <ReviewlistDateContainer />;
   return (
-    <>
-      <MainStyle>
-        <Header />
-        <MenuPopupContainer history={history} />
-        <ReviewlistDateContainer />
-        <Footer />
-      </MainStyle>
-    </>
+    <Page>
+      <DesktopPage history={history} content={container} />
+      <MobilePage history={history} content={container} />
+    </Page>
   );
 };
 

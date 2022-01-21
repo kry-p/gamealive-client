@@ -2,18 +2,11 @@ import React from 'react';
 
 import Card from '../common/Card';
 import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-} from '../common/Accordion';
-
-import {
   FooterStyle,
   SnsStyle,
   TitleStyle,
   DescriptionStyle,
 } from './FooterComponentStyle';
-
 import {
   KakaoShareButton,
   FacebookShareButton,

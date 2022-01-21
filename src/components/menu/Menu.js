@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import Card from '../common/Card';
 
 import NightsStayIcon from '@mui/icons-material/NightsStay';
-import SettingsIcon from '@mui/icons-material/Settings';
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import AssignmentIcon from '@mui/icons-material/Assignment';
@@ -13,8 +12,6 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
 import Switch from '@mui/material/Switch';
 import Divider from '@mui/material/Divider';
 
@@ -40,7 +37,7 @@ const Menu = ({
   const [open, setOpen] = useState(false);
 
   return (
-    <Card big>
+    <Card small>
       <List
         component="nav"
         aria-labelledby="nested-list-subheader"
@@ -55,10 +52,7 @@ const Menu = ({
           <ListItemIcon>
             <TextFieldsIcon />
           </ListItemIcon>
-          <ListItemText
-            primary="키워드로 검색"
-            secondary="게임물명, 신청자 키워드를 통해 검색합니다."
-          />
+          <ListItemText primary="키워드로 검색" />
         </ListItem>
         <ListItem
           button
@@ -69,10 +63,7 @@ const Menu = ({
           <ListItemIcon>
             <EventAvailableIcon />
           </ListItemIcon>
-          <ListItemText
-            primary="날짜로 검색"
-            secondary="심의가 진행된 날짜를 입력하여 검색합니다."
-          />
+          <ListItemText primary="날짜로 검색" />
         </ListItem>
         <ListItem
           button
@@ -83,10 +74,7 @@ const Menu = ({
           <ListItemIcon>
             <AssignmentIcon />
           </ListItemIcon>
-          <ListItemText
-            primary="오픈소스 라이선스"
-            secondary="라이선스 정보를 확인할 수 있습니다."
-          />
+          <ListItemText primary="오픈소스 라이선스" />
         </ListItem>
 
         <Divider />
@@ -94,26 +82,13 @@ const Menu = ({
           <ListItemIcon>
             <NightsStayIcon />
           </ListItemIcon>
-          <ListItemText
-            primary="다크 모드"
-            secondary="다크 모드를 설정합니다."
-          />
+          <ListItemText primary="다크 모드" />
           <Switch
             checked={settings.darkmode}
             onChange={onToggleDarkmode}
             size="small"
             inputProps={{ 'aria-label': 'dark mode' }}
           />
-        </ListItem>
-        <ListItem button onClick={handleClick}>
-          <ListItemIcon>
-            <SettingsIcon />
-          </ListItemIcon>
-          <ListItemText
-            primary="검색 설정"
-            secondary="검색과 관련된 옵션이 들어 있습니다."
-          />
-          {open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
       </List>
     </Card>
