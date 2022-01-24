@@ -52,7 +52,13 @@ const ReviewListKeywordContainer = ({ location }) => {
   };
 
   return (
-    <>
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'column',
+      }}
+    >
       <ReviewInfo
         type="keyword"
         form={form}
@@ -82,7 +88,7 @@ const ReviewListKeywordContainer = ({ location }) => {
       ) : (
         <></>
       )}
-    </>
+    </div>
   );
 };
 

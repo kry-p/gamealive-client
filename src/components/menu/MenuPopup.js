@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components';
 
 import Card from '../common/Card';
 
@@ -9,64 +8,15 @@ import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 
-import { makeStyles } from '@mui/styles';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Switch from '@mui/material/Switch';
 import Divider from '@mui/material/Divider';
 import CloseIcon from '@mui/icons-material/Close';
 import { IconButton } from '@mui/material';
-import { alpha, styled as styledMaterial } from '@mui/material/styles';
-
 import { toggleMenuOpen } from '../../modules/option';
-import palette from '../../lib/styles/palette';
-
-const Background = styled.div`
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-
-  animation: fadein 0.25s;
-  -moz-animation: fadein 0.25s;
-  /* Firefox */
-  -webkit-animation: fadein 0.25s;
-  /* Safari and Chrome */
-  -o-animation: fadein 0.25s;
-`;
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    maxWidth: 360,
-  },
-  nested: {
-    padding: theme.spacing(0),
-    paddingLeft: theme.spacing(4),
-  },
-}));
-
-const ColoredSwitch = styledMaterial(Switch)(({ theme }) => ({
-  '& .MuiSwitch-switchBase.Mui-checked': {
-    color: palette.logo_base[0],
-    '&:hover': {
-      backgroundColor: alpha(
-        palette.logo_base[0],
-        theme.palette.action.hoverOpacity,
-      ),
-    },
-  },
-  '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
-    backgroundColor: palette.logo_base[0],
-  },
-}));
+import { useStyles, ColoredSwitch, Background } from './MenuStyle';
 
 const MenuPopup = ({
   history,
@@ -79,10 +29,13 @@ const MenuPopup = ({
   const dispatch = useDispatch();
   const isOpen = useSelector((state) => state.option.menuOpen);
 
-  const onToggleMenuOpen = useCallback(
-    () => dispatch(toggleMenuOpen()),
-    [dispatch],
-  );
+  const onToggleMenuOpen = useCallback(() => {
+    dispatch(toggleMenuOpen());
+  }, [dispatch]);
+
+  isOpen
+    ? (document.body.style.overflow = 'hidden')
+    : (document.body.style.overflow = 'unset');
 
   return isOpen ? (
     <>
@@ -91,7 +44,7 @@ const MenuPopup = ({
         style={{
           display: 'flex',
           position: 'fixed',
-          top: '0.75rem',
+          top: '1rem',
           flexDirection: 'column',
           zIndex: '2',
         }}
@@ -104,7 +57,7 @@ const MenuPopup = ({
         <Card big>
           <List
             component="nav"
-            aria-labelledby="nested-list-subheader"
+            aria-labelledby="menu-popup"
             className={classes.root}
           >
             <ListItem

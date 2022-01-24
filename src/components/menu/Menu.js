@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
-
-import Card from '../common/Card';
+import React from 'react';
 
 import NightsStayIcon from '@mui/icons-material/NightsStay';
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 
-import { makeStyles } from '@mui/styles';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -15,16 +12,8 @@ import ListItemText from '@mui/material/ListItemText';
 import Switch from '@mui/material/Switch';
 import Divider from '@mui/material/Divider';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    maxWidth: 360,
-  },
-  nested: {
-    padding: theme.spacing(0),
-    paddingLeft: theme.spacing(4),
-  },
-}));
+import Card from '../common/Card';
+import { useStyles } from './MenuStyle';
 
 const Menu = ({
   history,
@@ -34,7 +23,6 @@ const Menu = ({
   onToggleCancelled,
 }) => {
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
 
   return (
     <Card small>
@@ -76,7 +64,6 @@ const Menu = ({
           </ListItemIcon>
           <ListItemText primary="오픈소스 라이선스" />
         </ListItem>
-
         <Divider />
         <ListItem button>
           <ListItemIcon>
@@ -87,7 +74,7 @@ const Menu = ({
             checked={settings.darkmode}
             onChange={onToggleDarkmode}
             size="small"
-            inputProps={{ 'aria-label': 'dark mode' }}
+            inputProps={{ 'aria-label': 'darkmode' }}
           />
         </ListItem>
       </List>

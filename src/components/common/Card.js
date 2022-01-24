@@ -16,6 +16,7 @@ export const CardStyle = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0.75rem;
+  margin-bottom: 0.5rem;
   margin-top: 0.5rem;
   border-radius: 1rem;
   box-sizing: border-box;
