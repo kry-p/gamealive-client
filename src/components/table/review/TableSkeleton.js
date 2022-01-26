@@ -21,7 +21,7 @@ const TableSkeleton = ({ review, loading }) => {
         <TableHead>
           <TableRow>
             <TableCell align={'center'}>게임물명</TableCell>
-            <TableCell align={'center'}>신청자</TableCell>
+            {/* <TableCell align={'center'}>신청자</TableCell> */}
             <TableCell align={'center'}>등급</TableCell>
           </TableRow>
         </TableHead>

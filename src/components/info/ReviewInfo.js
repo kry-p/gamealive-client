@@ -1,7 +1,6 @@
 import React from 'react';
 
-import SearchByDate from '../search/SearchByDate';
-import SearchByKeyword from '../search/SearchByKeyword';
+import { SearchByKeyword, SearchByDate } from '../search/SearchForm';
 import TableSkeleton from '../table/review/TableSkeleton';
 
 import { ReviewInfoStyle, CardStyle, HintStyle } from './ReviewInfoStyle';

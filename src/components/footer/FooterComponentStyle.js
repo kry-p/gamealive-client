@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 // footer card css
 export const FooterStyle = styled.div`
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   padding: 1rem;
   display: grid;
   grid-template-columns: 3fr;
@@ -23,6 +23,7 @@ export const TitleStyle = styled.div`
   grid-column: 1 / span 3;
   text-align: center;
   font-weight: bold;
+  font-size: 0.85rem;
 `;
 
 export const DescriptionStyle = styled.div`

@@ -30,9 +30,9 @@ const Items = (props) => {
   return (
     <TableRow>
       <TableCell>{props.title}</TableCell>
-      <TableCell>{props.applicant}</TableCell>
+      {/* <TableCell>{props.applicant}</TableCell> */}
       <TableCell>
-        <img src={rating(props)} alt={props.rating} />
+        <img src={rating(props)} alt={props.rating} width="25" height="30" />
       </TableCell>
     </TableRow>
   );

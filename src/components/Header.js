@@ -12,10 +12,11 @@ import { useDispatch } from 'react-redux';
 import { toggleMenuOpen } from '../modules/option';
 // items css
 const Logo = styled.div`
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   text-align: center;
   font-size: 1.125rem;
-  font-family: TmoneyRoundWindExtraBold;
+  font-family: Montserrat Alternates;
+  font-weight: bolder;
 
   ${(props) =>
     props.colorize &&
@@ -44,6 +45,7 @@ export const Header = () => {
     <Card big header>
       <ContentWrapper>
         <IconButton
+          aria-label="button-menu"
           onClick={() => {
             dispatch(toggleMenuOpen());
           }}
@@ -57,6 +59,7 @@ export const Header = () => {
         </TextWrapper>
 
         <IconButton
+          aria-label="button-notification"
           onClick={() => {
             alert('준비 중입니다.');
           }}

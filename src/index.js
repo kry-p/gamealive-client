@@ -16,6 +16,7 @@ import { GlobalStyle } from './lib/styles/global';
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
   rootReducer,
+  // applyMiddleware(sagaMiddleware),
   composeWithDevTools(applyMiddleware(sagaMiddleware)),
 );
 const persistor = persistStore(store);

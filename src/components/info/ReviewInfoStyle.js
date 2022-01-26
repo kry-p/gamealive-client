@@ -21,5 +21,5 @@ export const HintStyle = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   padding: 1rem;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 `;

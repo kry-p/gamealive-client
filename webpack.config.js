@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const outputDirectory = './build';
 
@@ -15,7 +16,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, outputDirectory),
     publicPath: '/',
-    filename: 'bundle.[fullhash].js',
+    filename: '[id].[chunkhash].js',
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
@@ -47,16 +48,31 @@ module.exports = {
       },
     ],
   },
+  // optimization: {
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       commons: {
+  //         test: /[\\/]node_modules[\\/]/,
+  //         chunks: 'initial',
+  //         minSize: 10000,
+  //         maxSize: 250000,
+  //       },
+  //     },
+  //   },
+  // },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html',
       favicon: './public/favicon.ico',
-      minify: false,
+      minify: true,
     }),
     new MiniCssExtractPlugin(),
     new webpack.DefinePlugin({
       'process.env': JSON.stringify(process.env),
+    }),
+    new CopyPlugin({
+      patterns: [{ from: 'public/robots.txt', to: 'robots.txt' }],
     }),
   ],
   devServer: {

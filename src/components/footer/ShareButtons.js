@@ -65,9 +65,9 @@ export const KakaoShareButton = () => {
     <Button
       sns
       kakaotalk
-      id="kakao-link-btn"
       onClick={sendLink}
       style={{ gridColumn: '1 / span 1`' }}
+      aria-label="button-share-kakao"
     >
       <Kakaotalk fill={`${palette.kakaotalk[2]}`} width="16" height="16" />
     </Button>
@@ -84,6 +84,7 @@ export const FacebookShareButton = () => {
       facebook
       style={{ gridColumn: '1 / span 1`' }}
       onClick={onClick}
+      aria-label="button-share-facebook"
     >
       <Facebook fill={`${palette.facebook[2]}`} width="16" height="16" />
     </Button>
@@ -95,7 +96,13 @@ export const TwitterShareButton = () => {
     window.open(`https://www.twitter.com/intent/tweet?&url=${urlBuilder()}`);
   };
   return (
-    <Button sns twitter style={{ gridColumn: '1 / span 1`' }} onClick={onClick}>
+    <Button
+      sns
+      twitter
+      style={{ gridColumn: '1 / span 1`' }}
+      onClick={onClick}
+      aria-label="button-share-twitter"
+    >
       <Twitter fill={`${palette.twitter[2]}`} width="16" height="16" />
     </Button>
   );
@@ -106,7 +113,13 @@ export const BlogShareButton = () => {
     window.open(`http://blog.naver.com/openapi/share?url=${urlBuilder()}`);
   };
   return (
-    <Button sns blog style={{ gridColumn: '1 / span 1`' }} onClick={onClick}>
+    <Button
+      sns
+      blog
+      style={{ gridColumn: '1 / span 1`' }}
+      onClick={onClick}
+      aria-label="button-share-naverblog"
+    >
       <Blog fill={`${palette.naverblog[2]}`} width="16" height="16" />
     </Button>
   );
@@ -133,7 +146,13 @@ export const LinkShareButton = () => {
     alert('링크가 복사되었습니다.');
   };
   return (
-    <Button sns link style={{ gridColumn: '1 / span 1`' }} onClick={onClick}>
+    <Button
+      sns
+      link
+      style={{ gridColumn: '1 / span 1`' }}
+      onClick={onClick}
+      aria-label="button-share-link"
+    >
       <Link fill={`${palette.link[2]}`} width="16" height="16" />
       <form>
         <TextArea ref={copyUrlRef} value={window.location.href} readOnly />

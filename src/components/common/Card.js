@@ -26,13 +26,13 @@ export const CardStyle = styled.div`
   background-color: ${cardColor};
 
   h1 {
-    font-size: medium;
+    font-size: large;
   }
   h2 {
-    font-size: small;
+    font-size: medium;
   }
   h3 {
-    font-size: x-small;
+    font-size: small;
   }
 
   animation: fadein 1s;

@@ -1,13 +1,13 @@
 import React from 'react';
 
-import ReviewlistKeywordContainer from '../containers/reviews/ReviewListKeywordContainer';
+import { ReviewListKeywordContainer } from '../containers/reviews/ReviewListContainer';
 
 import { Page } from '../components/common/PageStyle';
 import DesktopPage from '../components/common/DesktopPage';
 import MobilePage from '../components/common/MobilePage';
 
 const SearchDatePage = ({ history }) => {
-  const container = <ReviewlistKeywordContainer />;
+  const container = <ReviewListKeywordContainer />;
   return (
     <Page>
       <DesktopPage history={history} content={container} />

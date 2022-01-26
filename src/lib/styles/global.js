@@ -25,10 +25,12 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     @font-face {
-        font-family: 'TmoneyRoundWindExtraBold';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff') format('woff');
-        font-weight: normal;
+        font-family: 'Montserrat Alternates';
         font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserratalternates/v12/mFTiWacfw6zH4dthXcyms1lPpC8I_b0juU0xNIPFB7xG-GNxkg.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
 
     @font-face {
@@ -36,6 +38,7 @@ export const GlobalStyle = createGlobalStyle`
         src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindRegular.woff') format('woff');
         font-weight: normal;
         font-style: normal;
+        font-display: swap;
     }
 
     a {
