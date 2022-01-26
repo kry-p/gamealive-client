@@ -89,11 +89,14 @@ const review = handleActions(
         draft.enddate = response.headers['enddate'];
         draft.currentpage = parseInt(response.headers['currentpage'], 10);
         draft.lastpage = parseInt(response.headers['lastpage'], 10);
+        draft.error = null;
       }),
-    [LIST_REVIEW_DATE_FAILURE]: (state, { payload: error }) => ({
-      ...state,
-      error,
-    }),
+    [LIST_REVIEW_DATE_FAILURE]: (state, { payload: error }) =>
+      produce(state, (draft) => {
+        draft.currentpage = 0;
+        draft.lastpage = 0;
+        draft.error = error;
+      }),
     [LIST_REVIEW_KEYWORD_SUCCESS]: (
       state,
       { payload: review, meta: response },
@@ -106,11 +109,14 @@ const review = handleActions(
         draft.keyword = decodeURI(response.headers['keyword']);
         draft.currentpage = parseInt(response.headers['currentpage'], 10);
         draft.lastpage = parseInt(response.headers['lastpage'], 10);
+        draft.error = null;
       }),
-    [LIST_REVIEW_KEYWORD_FAILURE]: (state, { payload: error }) => ({
-      ...state,
-      error,
-    }),
+    [LIST_REVIEW_KEYWORD_FAILURE]: (state, { payload: error }) =>
+      produce(state, (draft) => {
+        draft.currentpage = 0;
+        draft.lastpage = 0;
+        draft.error = error;
+      }),
   },
   initialState,
 );

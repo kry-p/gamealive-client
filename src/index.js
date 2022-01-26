@@ -8,7 +8,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { composeWithDevTools } from 'redux-devtools-extension';
+// import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer, { rootSaga } from './modules';
 
 import { GlobalStyle } from './lib/styles/global';
@@ -16,8 +16,8 @@ import { GlobalStyle } from './lib/styles/global';
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
   rootReducer,
-  // applyMiddleware(sagaMiddleware),
-  composeWithDevTools(applyMiddleware(sagaMiddleware)),
+  applyMiddleware(sagaMiddleware),
+  // composeWithDevTools(applyMiddleware(sagaMiddleware)),
 );
 const persistor = persistStore(store);
 
