@@ -46,7 +46,7 @@ const darkMaterialTheme = createTheme(
     },
     typography: {
       fontFamily: 'TmoneyRoundWindRegular',
-      fontSize: 11,
+      fontSize: 12,
     },
     overrides: {
       MuiTableCell: {
