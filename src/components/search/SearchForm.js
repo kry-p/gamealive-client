@@ -9,9 +9,17 @@ import TextField from '@mui/material/TextField';
 import { MdSearch } from 'react-icons/md';
 import Card from '../common/Card';
 
-const queryBuilder = (keyword, page) => {
-  const query = qs.stringify({ keyword, page });
-  return query;
+const queryBuilder = (type, page, query) => {
+  const queryItems = { page };
+  if (type === 'keyword') {
+    queryItems.keyword = query.keyword;
+  }
+  if (type === 'date') {
+    queryItems.startdate = query.startdate;
+    queryItems.enddate = query.enddate;
+  }
+  const querySelector = qs.stringify(queryItems);
+  return querySelector;
 };
 
 const SearchFormStyle = styled.div`
@@ -49,7 +57,7 @@ export const SearchByKeyword = ({ form, onChange }) => {
         <IconButton
           aria-label="button-search"
           style={{ gridColumn: '2 / span 1' }}
-          href={`?${queryBuilder(form.keyword, 1)}`}
+          href={`?${queryBuilder('keyword', 1, { keyword: form.keyword })}`}
         >
           <MdSearch />
         </IconButton>
@@ -85,7 +93,10 @@ export const SearchByDate = ({ form, onChange }) => {
       />
       <IconButton
         style={{ gridColumn: '3 / span 1', paddingRight: 0 }}
-        href={`?${queryBuilder(form.startdate, form.enddate, 1)}`}
+        href={`?${queryBuilder('date', 1, {
+          startdate: form.startdate,
+          enddate: form.enddate,
+        })}`}
       >
         <MdSearch />
       </IconButton>
