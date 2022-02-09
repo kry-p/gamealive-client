@@ -1,9 +1,18 @@
 import React from 'react';
 
 import { SearchByKeyword, SearchByDate } from '../search/SearchForm';
-import TableSkeleton from '../table/review/TableSkeleton';
+import {
+  TableSkeleton,
+  TableWhileLoading,
+} from '../table/review/TableSkeleton';
 
 import { ReviewInfoStyle, CardStyle, HintStyle } from './ReviewInfoStyle';
+
+import Table from '@mui/material/Table';
+import TableHead from '@mui/material/TableHead';
+import TableBody from '@mui/material/TableBody';
+import TableRow from '@mui/material/TableRow';
+import TableCell from '@mui/material/TableCell';
 
 const ReviewInfo = ({ type, review, loading, error, form, onChange }) => {
   let result = null;
@@ -17,8 +26,7 @@ const ReviewInfo = ({ type, review, loading, error, form, onChange }) => {
   } else if (loading) {
     result = (
       <>
-        <TableSkeleton review={null} loading={loading} />
-        <div style={{ padding: '2rem' }}>로드 중입니다.</div>
+        <TableWhileLoading />
       </>
     );
   } else {

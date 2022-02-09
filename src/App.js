@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, lazy } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import SearchDatePage from './pages/SearchDatePage';
-import SearchKeywordPage from './pages/SearchKeywordPage';
 
 import { useSelector } from 'react-redux';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { koKR } from '@mui/material/locale';
-
-import { ThemeProvider as StyledThemeProvider } from 'styled-components';
-import LicensesPage from './pages/LicensesPage';
 import { CssBaseline } from '@mui/material';
+
+import withSplitting from './modules/withSplitting';
+
+const SearchDatePage = withSplitting(() => import('./pages/SearchDatePage'));
+const SearchKeywordPage = withSplitting(() =>
+  import('./pages/SearchKeywordPage'),
+);
+const LicensesPage = withSplitting(() => import('./pages/LicensesPage'));
 
 const lightMaterialTheme = createTheme(
   {
@@ -21,13 +25,12 @@ const lightMaterialTheme = createTheme(
       },
     },
     typography: {
-      fontFamily: 'TmoneyRoundWindRegular',
+      fontFamily: 'SUIT-Regular',
       fontSize: 12,
     },
     overrides: {
       MuiTableCell: {
         root: {
-          //This can be referred from Material UI API documentation.
           padding: '6px 6px',
         },
       },
@@ -45,13 +48,12 @@ const darkMaterialTheme = createTheme(
       },
     },
     typography: {
-      fontFamily: 'TmoneyRoundWindRegular',
-      fontSize: 12,
+      fontFamily: 'SUIT-Regular',
+      fontSize: 11,
     },
     overrides: {
       MuiTableCell: {
         root: {
-          //This can be referred from Material UI API documentation.
           padding: '6px 6px',
         },
       },
