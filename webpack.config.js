@@ -48,18 +48,6 @@ module.exports = {
       },
     ],
   },
-  // optimization: {
-  //   splitChunks: {
-  //     cacheGroups: {
-  //       commons: {
-  //         test: /[\\/]node_modules[\\/]/,
-  //         chunks: 'initial',
-  //         minSize: 10000,
-  //         maxSize: 250000,
-  //       },
-  //     },
-  //   },
-  // },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
