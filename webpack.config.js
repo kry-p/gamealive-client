@@ -55,7 +55,7 @@ module.exports = {
       favicon: './public/favicon.ico',
       minify: true,
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({ filename: '[name].css' }),
     new webpack.DefinePlugin({
       'process.env': JSON.stringify(process.env),
     }),

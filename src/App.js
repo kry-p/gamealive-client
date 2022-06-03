@@ -49,7 +49,7 @@ const darkMaterialTheme = createTheme(
     },
     typography: {
       fontFamily: 'SUIT-Regular',
-      fontSize: 11,
+      fontSize: 12,
     },
     overrides: {
       MuiTableCell: {
